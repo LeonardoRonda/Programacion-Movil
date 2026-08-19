@@ -1,6 +1,7 @@
 package com.ronda.lab00
 
 import android.os.Bundle
+//import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -14,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ronda.lab00.ui.theme.Lab00Theme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.Button
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +28,21 @@ class MainActivity : ComponentActivity() {
                         name = "Leonardo",
                         modifier = Modifier.padding(innerPadding)
                     )
+                    Filledbutton {  }
                 }
             }
         }
     }
 }
 
+
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Column(modifier = modifier){
         Text(text = "¡Hola, soy $name!", fontSize = 24.sp )
         Text(text = "Curso: Programación en Móviles")
+
     }
 }
 
@@ -45,5 +51,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     Lab00Theme {
         Greeting("Leonardo")
+    }
+}
+@Composable
+fun Filledbutton(onClick: () -> Unit) {
+    Button(onClick = {onClick() }) {
+        Text("Presióname")
     }
 }
